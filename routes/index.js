@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var api = require('../lib/api');
+var Promise = require('es6-promise').Promise;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -12,8 +13,15 @@ router.get('/', function(req, res, next) {
 * Make models alphabetically sortable (ascending, descending, default)
 */
 router.get('/models', function(req, res, next) {
-	// use api to get models and render output
-	res.render('models');
+	//Sol: Fetched, resolved promise and handled error
+	api.fetchModels().then(function(result){
+		res.render('models', {models: result});
+	},
+	function(error){
+		//Sol: Added basic error handler here
+		res.render('error', {error: error, message: "Whoops, something went wrong while fetching Models!"});
+	})
+	
 });
 
 /*
@@ -21,8 +29,14 @@ router.get('/models', function(req, res, next) {
 * Make services filterable by type (repair, maintenance, cosmetic)
 */
 router.get('/services', function(req, res, next) {
-	// use api to get services and render output
-	res.render('services');
+	//Sol: Fetched, resolved promise and handled error
+	api.fetchServices().then(function(result){
+		res.render('services', {services: result});
+	},
+	function(error){
+		//Sol: Added basic error handler here
+		res.render('services', {services: []});
+	})
 });
 
 /*
@@ -33,7 +47,11 @@ router.get('/services', function(req, res, next) {
 router.get('/reviews', function(req, res, next) {
 	return Promise.all([api.fetchCustomerReviews(), api.fetchCorporateReviews()])
 		.then(function(reviews) {
-			res.render('reviews', {reviews: reviews});
+			//Sol: Flattened the Array of Arrays here - [[corporate array],[customer array]]
+			//became [corporate array items, customer array items]
+			res.render('reviews', {reviews: [].concat.apply([], reviews)});
+		}, function(error){
+			console.log("Error fetching array")
 		});
 });
 

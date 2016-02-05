@@ -2,11 +2,15 @@ extends _shared
 
 block body
 	.reviews
-		h2 Customer reviews
-
-		//- Implement search here
-
-		for review in reviews
-			blockquote
-				p= review.content
-				footer= review.source
+		table#review-table.display(cellspacing='0', width='100%').table.table-striped.table-bordered
+			thead
+				tr
+					th Customer reviews               
+			tbody
+				for review in reviews
+					tr
+						td
+							blockquote
+								p= review.content
+								footer= review.source
+	script(src='scripts/reviews.js')

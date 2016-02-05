@@ -2,9 +2,13 @@ extends _shared
 
 block body
 	.models
-		h2 Models we work on
-
-		//- Implement sorting here
-
-		for model in models
-			h4= model
+		table#models-table.display(cellspacing='0', width='100%').table.table-striped.table-bordered
+			thead
+				tr
+					th Models we work on               
+			tbody
+				for model in models
+					tr
+						td
+							h4= model
+	script(src="scripts/models.js")

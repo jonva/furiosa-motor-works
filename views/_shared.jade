@@ -1,20 +1,48 @@
 html
 	head
-		link(rel='stylesheet', href='stylesheets/bootstrap.css')
-		link(rel='stylesheet', href='stylesheets/style.css')
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='description', content='A page for Furiosas Auto Shop')
+		meta(name='author', content='Nikhil John')
 		title Furiosas Auto Shop
+		link(rel='stylesheet', href='stylesheets/bootstrap.css')
+		link(rel='stylesheet', href='//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css')
+		link(rel='stylesheet', href='stylesheets/style.css')
+
+		// Custom Fonts
+		link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')  
+		link(href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic', rel='stylesheet', type='text/css')
+		link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
 		block head
 	body
-		.container
-			.nav
-				ul.nav.nav-pills
-					li
-						a(href='/') Home
-					li
-						a(href='/services') Services
-					li
-						a(href='/models') Models
-					li
-						a(href='/reviews') Reviews
-				hr
+		.container-fluid
+			nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+				.container-fluid
+					.navbar-header.page-scroll
+						button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+							span.sr-only Toggle navigation         
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href='/') Furiosas Auto Shop
+					#bs-example-navbar-collapse-1.collapse.navbar-collapse
+						ul.nav.navbar-nav.navbar-right
+							li
+								a(href='/') Home
+							li
+								a(href='/services') Services
+							li
+								a(href='/models') Models                  
+							li
+								a(href='/reviews') Reviews
+
+
+			script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js')
+			script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==", crossorigin="anonymous")
+			script(src='//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js')
+			script(src='//cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js')
+			script(src='scripts/main.js')
+
 			block body
+
