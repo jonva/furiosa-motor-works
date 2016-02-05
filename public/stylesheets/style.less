@@ -3,23 +3,16 @@
 
 // Global Components
 
+
 body {
 	.serif;
 	font-size: 20px;
 	color: @gray-dark;
 	background: url('/images/banner.jpg');
-	padding-top: 100px;
+	padding-top: 50px;
 }
 
 // -- Typography
-
-p {
-	line-height: 1.5;
-	margin: 30px 0;
-	a {
-		text-decoration: underline;
-	}
-}
 
 h1,
 h2,
@@ -58,6 +51,9 @@ hr.small {
 	border-color: white;
 }
 
+th, td {
+	font-size: 12px;
+}
 // Navigation
 
 .navbar-custom {
@@ -496,3 +492,18 @@ body {
 		}
 	}
 }
+
+
+	.dataTables_filter{
+		label{
+		font-size: 14px;
+		color: @white-faded;
+		}
+		padding-bottom: 10px;
+		border-bottom: 0.5px solid white;
+	}
+	.services{
+	th{
+	color: @white-faded;
+	}
+	}

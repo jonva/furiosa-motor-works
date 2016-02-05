@@ -2,7 +2,7 @@ extends _shared
 
 block body
 	.services
-		table#services-table.display(cellspacing='0', width='100%').table.table-striped.table-bordered
+		table#services-table.display(cellspacing='0', width='100%')
 			thead
 				tr
 					th Job
@@ -12,6 +12,7 @@ block body
 				tr
 					th
 					th
+						p Filter Type
 					th Type           
 			tbody
 				for service in services

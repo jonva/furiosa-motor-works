@@ -2,7 +2,7 @@ extends _shared
 
 block body
 	.models
-		table#models-table.display(cellspacing='0', width='100%').table.table-striped.table-bordered
+		table#models-table.display(cellspacing='0', width='100%')
 			thead
 				tr
 					th Models we work on               
@@ -10,5 +10,5 @@ block body
 				for model in models
 					tr
 						td
-							h4= model
+							p= model
 	script(src="scripts/models.js")
